@@ -1,0 +1,32 @@
+version: '3.3'
+
+services:
+  codecrafter:
+    build: .
+    hostname: codecrafter
+    container_name:   codecrafter
+    restart: on-failure
+    command: sh -c "python3 manage.py makemigrations && 
+                    python3 manage.py migrate --no-input && 
+                    python3 manage.py collectstatic --no-input && 
+                    uwsgi --ini uwsgi.ini"
+
+    expose:
+      - 8000
+    ports:
+      - 8000:8000
+    networks:
+      - main_codecrafter_network
+    volumes:
+      - .:/code/
+      - ./media:/code/media
+      - ./static:/code/static
+
+
+networks:
+  main_codecrafter_network:
+
+volumes:
+  static:
+  media:
+  data:

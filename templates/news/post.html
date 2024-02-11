@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+		
+{% block body %}
+ {{ object.describe | safe }}
+ <br>
+ <form action="{% url 'blog:blog_detail' object.pk %}" method="post" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+        {{ field.label }}
+        {{ field }}
+        {{ field.errors }}
+    </p>
+    {% endfor %}
+    <input type="submit" value="ارسال">
+</form>
+{% endblock %}

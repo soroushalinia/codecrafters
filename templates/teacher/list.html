@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+		
+{% block body %}
+  {% for obj in object_list %}
+    <a href="{% url 'blog:blog_detail' obj.pk %}">{{ obj.title }}</a>
+  {% endfor %}
+
+
+{% endblock %}

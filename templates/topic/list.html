@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+		
+{% block body %}
+ {{ object.describe | safe }}
+</br>
+ {% for obj in object_list %}
+    {% obj.title %}
+ {% endfor %}
+
+{% endblock %}

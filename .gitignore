@@ -1,0 +1,6 @@
+venv/
+000*
+__pycharm__/
+media
+static
+db*
