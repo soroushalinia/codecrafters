@@ -10,17 +10,17 @@ from .models import CatalogModel
 @admin.register(CatalogModel)
 class CatalogAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
-        if request.user.is_superuser and not request.user.teachermodel.remove:
+        if request.user.id == 1:
             qs = super().get_queryset(request)
             return qs
         
     def has_add_permission(self, request):
-        if request.user.is_superuser and not request.user.teachermodel.remove:
+        if request.user.id == 1:
             return True
         return False
     
     def has_change_permission(self, request, obj=None):
-        if request.user.is_superuser and not request.user.teachermodel.remove:
+        if request.user.id == 1:
             return True
         return False
     
@@ -34,9 +34,7 @@ class CustomUserAdmin(UserAdmin):
         if request.user.id == 1:
             qs = super().get_queryset(request)
             return qs 
-        if request.user.is_superuser and not request.user.teachermodel.remove:
-            qs = super().get_queryset(request)
-            return qs.filter(id=request.user.id)
+        
         
     def has_add_permission(self, request):
         if request.user.id == 1:
@@ -46,7 +44,7 @@ class CustomUserAdmin(UserAdmin):
     def has_change_permission(self, request, obj=None):
         if request.user.id == 1:
             return True
-        if request.user.is_superuser and not request.user.teachermodel.remove:
+        if request.user.is_superuser or not request.user.teachermodel.remove:
             return True
         return False
     
@@ -61,16 +59,16 @@ class CustomGroupAdmin(GroupAdmin):
     
     def has_change_permission(self, request, obj=None):
         if request.user.id == 1:
-                    return True 
+            return True 
         return False
     
     def has_delete_permission(self, request, obj=None):
         return False
 
-# Unregister the original User and Group admin
+# Unregister the original User or Group admin
 admin.site.unregister(User)
 admin.site.unregister(Group)
 
-# Register the custom User and Group admin
+# Register the custom User or Group admin
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Group, CustomGroupAdmin)

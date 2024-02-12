@@ -11,7 +11,7 @@ class ConnectAdmin(admin.ModelAdmin):
             return True
         return False
     def has_change_permission(self, request, obj=None):
-        if request.user.is_superuser and not request.user.teachermodel.remove:
+        if request.user.id == 1:
             return True
         return False
     
