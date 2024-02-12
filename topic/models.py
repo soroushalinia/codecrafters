@@ -5,7 +5,7 @@ from core.models import CatalogModel
 # Create your models here.
 
 class TopicModel(models.Model):
-    teacher = models.ForeignKey(TeacherModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='نام مدرس')
+    author = models.ForeignKey(TeacherModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='نام مدرس')
     catalog = models.ForeignKey(CatalogModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='دسته بندی')
     name = models.CharField(max_length=250, verbose_name='نام')
     title = models.TextField(verbose_name='عنوان')
@@ -15,9 +15,7 @@ class TopicModel(models.Model):
     search = models.TextField(verbose_name='متن جستجو')
     
     def delete(self, *args, **kwargs):
-        self.image.delete()
-        self.translate.delete()
-        super(TopicModel, self).delete()
+        pass
     
     def __str__(self) -> str:
         return f'{self.name}'
@@ -41,6 +39,9 @@ class DescribeTopicModel(models.Model):
     def __str__(self) -> str:
         return f'{self.title}'
     
+    def delete(self, *args, **kwargs):
+        pass
+
     class Meta:
         verbose_name = "جلسه"
         verbose_name_plural = "جلسات"
@@ -58,7 +59,10 @@ class CommentTopicModel(models.Model):
 
     def __str__(self) -> str:
         return f'{self.name}'
-    
+
+    def delete(self, *args, **kwargs):
+        pass
+
     class Meta:
         verbose_name = "کامنت"
         verbose_name_plural = "کامنت ها"

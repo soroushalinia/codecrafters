@@ -17,13 +17,9 @@ class BlogModel(models.Model):
     
     def __str__(self) -> str:
         return f'{self.title}'
-    
+
     def delete(self, *args, **kwargs):
-        if self.request.user.superuser:
-            return super(BlogModel, self)
-        self.image.delete()
-        self.translate.delete()
-        super(BlogModel, self).delete()
+        pass
 
     class Meta:
         verbose_name = "وبلاگ"
@@ -42,6 +38,9 @@ class CommentBlogtModel(models.Model):
     def __str__(self) -> str:
         return f'{self.name}'
     
+    def delete(self, *args, **kwargs):
+        pass
+
     class Meta:        
         verbose_name = "کامنت"
         verbose_name_plural = "کامنت ها"

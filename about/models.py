@@ -13,6 +13,9 @@ class ConnectModel(models.Model):
     def __str__(self) -> str:
         return f'{self.title}'
     
+    def delete(self, *args, **kwargs):
+        pass
+
     class Meta:
         verbose_name = 'ارتیاط با ما'
         verbose_name_plural = 'ارتیاط با ما'

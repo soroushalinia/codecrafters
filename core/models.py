@@ -7,6 +7,9 @@ class CatalogModel(models.Model):
 
     def __str__(self) -> str:
         return f'{self.title}'
+    
+    def delete(self, *args, **kwargs):
+        pass
 
     class Meta:
         verbose_name = "دسته بندی"

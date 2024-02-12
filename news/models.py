@@ -18,9 +18,7 @@ class NewsModel(models.Model):
         return f'{self.title}'
         
     def delete(self, *args, **kwargs):
-        self.image.delete()
-        self.translate.delete()
-        super(NewsModel, self).delete()
+        pass
 
     class Meta:
         verbose_name = "خبر"
