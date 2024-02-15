@@ -1,0 +1,64 @@
+{% load static %}
+
+{% url 'core:index' as index %}
+{% url 'news:newses' as news %}
+{% url 'blog:blogs' as blog %}
+{% url 'topic:topics' as topic %}
+{% url 'teacher:teachers' as teacher %}
+{% url 'about:about' as about %}
+
+<div class="fh5co-loader"></div>
+			
+<div id="page">
+
+    <nav class="fh5co-nav" role="navigation">
+        <div class="top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        <p class="site">www.codecrafters.ir</p>
+                        <!--<p class="num">Call: +01 123 456 7890</p>-->
+                        <ul class="fh5co-social">
+                            <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                            <li><a href="#"><i class="icon-twitter2"></i></a></li>
+                            <li><a href="#"><i class="icon-dribbble2"></i></a></li>
+                            <li><a href="#"><i class="icon-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div id="fh5co-logo"><a href="index.html"><i class="icon-study"></i>CodeCrafters<span></span></a></div>
+                    </div>
+                    <div class="col-xs-9 text-right menu-1">
+                        <ul>
+                            <li {% if request.path == index %} class="active" {% endif %} ><a href="{{ index }}">خانه</a></li>
+                            <li {% if request.path == news %} class="active" {% endif %}  ><a href="{{ news }}">اخبار</a></li>
+                            <li {% if request.path == blog %} class="active" {% endif %} ><a href="{{ blog }}">وبلاگ</a></li>
+                            <li class="has-dropdown" {% if request.path == index %} class="topic" {% endif %} >
+                                <a href="{{ topic }}">موضوعات</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">eCommerce</a></li>
+                                    <li><a href="#">Branding</a></li>
+                                    <li><a href="#">API</a></li>
+                                </ul>
+                            </li>
+                            <li {% if request.path == teacher %} class="active" {% endif %} ><a href="{{ teacher }}">نویسندگان</a></li>
+                            <li {% if request.path == about %} class="active" {% endif %} ><a href="{{ about }}">درباره‌ما</a></li>
+                            <!--
+                            <li><a href="contact.html">راه ارتباطی</a></li>
+                            <li class="btn-cta"><a href="#"><span>Login</span></a></li>
+                            <li class="btn-cta"><a href="#"><span>Create a Course</span></a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </nav>

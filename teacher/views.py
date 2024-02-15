@@ -5,10 +5,10 @@ from .models import TeacherModel
 
 
 class TeacherListView(ListView):
-    queryset = TeacherModel.objects.filter(delete=False)
+    queryset = TeacherModel.objects.filter(remove=False)
     template_name = 'teacher/list.html'
 
 
 class TeacherDetailView(DetailView):
-    queryset = TeacherModel.objects.filter(delete=False)
+    queryset = TeacherModel.objects.filter(remove=False)
     template_name = 'teacher/detail.html'

@@ -1,5 +1,10 @@
 from django.urls import path
+from .views import TopicListViews, TopicDetailView, TopicDescribeCommentView
 
 app_name = 'topic'
 
-urlpatterns = []
+urlpatterns = [
+    path('', TopicListViews.as_view(), name='topics'),
+    path('<pk>/', TopicDetailView.as_view(), name='topic'),
+    path('describe/', TopicDescribeCommentView.as_view(), name='describe'),
+]
