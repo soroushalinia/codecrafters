@@ -9,12 +9,12 @@ services:
     command: sh -c "python3 manage.py makemigrations && 
                     python3 manage.py migrate --no-input && 
                     python3 manage.py collectstatic --no-input && 
-                    uwsgi --ini uwsgi.ini"
+                    gunicorn -k gevent --workers 4 config.wsgi:application -b 0.0.0.0:8000"
 
     expose:
       - 8000
     ports:
-      - 8000:8000
+      - 8009:8000
     networks:
       - main_codecrafter_network
     volumes:
