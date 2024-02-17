@@ -1,10 +1,19 @@
 from django.contrib import admin
 from .models import NewsModel, NewsCommentModel
+from teacher.models import TeacherModel
 # Register your models here.
 
 
 @admin.register(NewsModel)
 class NewsAdmin(admin.ModelAdmin):
+    exclude = ['author', ]
+    
+    def save_model(self, request, obj, form, change):
+        # Set the user field when creating a new object
+        if not obj.author:
+            obj.author = TeacherModel.objects.get(author__id = request.user.id)
+        obj.save()
+
     def get_queryset(self, request):
         if request.user.id == 1:
             qs = super().get_queryset(request)

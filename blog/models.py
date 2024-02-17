@@ -13,7 +13,7 @@ class BlogModel(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ')
     public = models.BooleanField(default=False, verbose_name='انتشار')
     describe = RichTextField(verbose_name='توضیحات')
-    search = models.TextField(verbose_name='متن برای جستجو')
+    search = models.TextField(verbose_name='توضیح کوتاه')
     
     def __str__(self) -> str:
         return f'{self.title}'

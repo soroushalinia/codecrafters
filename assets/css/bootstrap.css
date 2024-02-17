@@ -57,9 +57,7 @@ a:active,
 a:hover {
   outline: 0;
 }
-.active {
-  background-color: #ebeff0;
-}
+
 abbr[title] {
   border-bottom: 1px dotted;
 }

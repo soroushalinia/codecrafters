@@ -10,7 +10,7 @@ from django.urls import reverse
 class BlogListView(ListView):
     queryset = BlogModel.objects.filter(public=True)
     template_name = 'blog/list.html'
-    ordering = ('created')
+    ordering = ('-created')
 
 
 

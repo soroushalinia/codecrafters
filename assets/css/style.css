@@ -1639,3 +1639,17 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.custom-border {
+  border-width: 2px;          /* Set border width */
+  border-style: solid;        /* Set border style (solid, dashed, dotted, etc.) */
+  border-color: #3498db;      /* Set border color */
+  padding: 10px;              /* Optional: Add padding for better appearance */
+}
+
+/* You can also use shorthand property */
+.shorthand-border {
+  border: 2px dashed #e74c3c; /* Width, style, and color in one line */
+  padding: 10px;
+}

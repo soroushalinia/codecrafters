@@ -31,23 +31,24 @@
         <div class="top-menu">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-3">
-                        <div id="fh5co-logo"><a href="index.html"><i class="icon-study"></i>CodeCrafters<span></span></a></div>
+                    <div class="col-xs-5">
+                    <div id="fh5co-logo"><a href="index.html"><i class="icon-study"></i>Coding<span></span></a></div>
                     </div>
-                    <div class="col-xs-9 text-right menu-1">
+                    <div class="col-xs-7 text-right menu-1">
                         <ul>
                             <li {% if request.path == index %} class="active" {% endif %} ><a href="{{ index }}">خانه</a></li>
                             <li {% if request.path == news %} class="active" {% endif %}  ><a href="{{ news }}">اخبار</a></li>
                             <li {% if request.path == blog %} class="active" {% endif %} ><a href="{{ blog }}">وبلاگ</a></li>
-                            <li class="has-dropdown" {% if request.path == index %} class="topic" {% endif %} >
-                                <a href="{{ topic }}">موضوعات</a>
+                            <li {% if request.path == topic %} class="active" {% endif %} ><a href="{{ topic }}">موضوعات</a></li>
+                            <!--<li class="has-dropdown" {% if request.path == index %} class="topic" {% endif %} >
+                                <a>موضوعات</a>
                                 <ul class="dropdown">
                                     <li><a href="#">Web Design</a></li>
                                     <li><a href="#">eCommerce</a></li>
                                     <li><a href="#">Branding</a></li>
                                     <li><a href="#">API</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
                             <li {% if request.path == teacher %} class="active" {% endif %} ><a href="{{ teacher }}">نویسندگان</a></li>
                             <li {% if request.path == about %} class="active" {% endif %} ><a href="{{ about }}">درباره‌ما</a></li>
                             <!--
