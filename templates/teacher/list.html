@@ -8,21 +8,25 @@
     <div id="fh5co-staff">
       <div class="container">
         <div class="row">
+        {% for obj in object_list %}
           <div class="col-md-3 text-center">
             <div class="staff">
-              <div class="staff-img" style="background-image: url({% static 'images/staff-1.jpg' %});">
+              <div class="staff-img" style="background-image: url({{ obj.image.url }});">
                 <ul class="fh5co-social">
-                  <li><a href="#"><i class="icon-facebook2"></i></a></li>
-                  <li><a href="#"><i class="icon-twitter2"></i></a></li>
-                  <li><a href="#"><i class="icon-dribbble2"></i></a></li>
-                  <li><a href="#"><i class="icon-github"></i></a></li>
+                  {% if obj.telegram_username %}<li><a href="tg://resolve?domain={{obj.telegram_username}}"><i class="icon-telegram"></i></a></li>{% endif %}
+                  {% if obj.github_username %}<li><a href="https://github.com/{{obj.github_username}}"><i class="icon-github"></i></a></li>{% endif %}
+                  {% if obj.linkedin_username %}<li><a href="https://www.linkedin.com/in/{{obj.linkedin_username}}"><i class="icon-linkedin2"></i></a></li>{% endif %}
+                  {% if obj.email %}<li><a href="mailto:{{obj.email}}"><i class="icon-mail"></i></a></li>{% endif %}
                 </ul>
               </div>
-              <span>Health Teacher</span>
-              <h3><a href="#">Mike Smith</a></h3>
-              <p>Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi.</p>
+              <span>{{ obj.title }}</span>
+              <h3><a href="{% url 'teacher:teacher' obj.pk %}">{{ obj.name }}</a></h3>
+              <p>
+                {{ obj.search }}
+              </p>
             </div>
           </div>
+        {% endfor %}
         </div>
       </div>
     </div>

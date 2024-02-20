@@ -11,10 +11,11 @@ class TeacherModel(models.Model):
     image = models.ImageField(upload_to='teacher', null=True, blank=True, verbose_name='تصویر')
     remove = models.BooleanField(default=False, verbose_name='حذف')
     describe = RichTextField(verbose_name='توضیحات')
-    search = models.TextField(verbose_name='متن جستجو')
-    linkdin = models.URLField(null=True, blank=True, verbose_name='لینکدین')
-    email = models.EmailField(verbose_name='ایمیل')
-    telegram = models.URLField(null=True, blank=True, verbose_name='تلگرام')
+    search = models.TextField(verbose_name='متن جستجو از خود')
+    linkedin_username = models.CharField(max_length=255, null=True, blank=True, verbose_name='یوزرنیم لینکدین')
+    email = models.EmailField(max_length=255, verbose_name='ایمیل')
+    github_username = models.CharField(max_length=255, verbose_name='یوزرنیم گیت‌هاب')
+    telegram_username = models.CharField(max_length=255, null=True, blank=True, verbose_name=' یوزرنیم تلگرام')
 
     def __str__(self) -> str:
         return f'{self.name}'
