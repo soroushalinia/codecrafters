@@ -3,25 +3,17 @@
 		
 {% block meta_description %} {{ object.search }} {% endblock %}
 {% block meta_keywords %} {{ object.title }} {% endblock %}
-{% block titile %} وبلاگ {% endblock %}
+{% block title %} وبلاگ {% endblock %}
 
-
-
-{% block head %} 
-<style>
-    /* Define a class with border properties */
-    
-  </style>
-{% endblock %}
 
 
 {% block body %}
-<div id="fh5co-contact">
+<div id="fh5co-contact"  dir="rtl" lang="fa" style="unicode-bidi: embed;">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 animate-box">
 				<h3 class="text-center">{{ object.title }}</h3>
-                <div class="custom-border text-right">
+                <div class="custom-border">
 				    {{ object.describe|safe }}
                 </div>
 			</div>

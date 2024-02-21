@@ -42,7 +42,7 @@
     <meta name="description" mcontent="{% block meta_description %}{% endblock %}" />
     <meta name="keywords" content="{% block meta_keywords %} {% endblock %}" />  
     <link rel="shortcut icon" href="{% static 'image/favicon.ico' %}" type="image/x-icon" />
-    <title> Code Crafters | {% block titile %} {% endblock %}</title>
+    <title> Code Crafters | {% block title %} {% endblock %}</title>
 
 
     {% block head %} {% endblock %}
@@ -53,9 +53,7 @@
     {% include 'include/navbar.html' %}
 
     {% include 'include/msg.html' %}
-	<span dir="rtl" lang="fa" style="unicode-bidi: embed;">
-    	{% block body %} {% endblock %}
-	</span>
+	{% block body %} {% endblock %}
     {% include 'include/footer.html' %}
 
     {% block js %} {% endblock %}

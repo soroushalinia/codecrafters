@@ -3,17 +3,13 @@
 		
 {% block meta_description %} {{ object.search }} {% endblock %}
 {% block meta_keywords %} {{ object.title }} {% endblock %}
-{% block titile %} مدرس {% endblock %}
 
+{% block title %} نویسنده {% endblock %}
 
-
-{% block head %} 
-
-{% endblock %}
 
 
 {% block body %}
-<div id="fh5co-contact" >
+<div id="fh5co-contact"  dir="rtl" lang="fa" style="unicode-bidi: embed;">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-7 animate-box">
@@ -24,9 +20,9 @@
 			</div>
             <br>
             <br>
-            <div class="col-md-4">
+            <div class="col-md-4 text-center">
               <div class="panel panel-default">
-                  <div class="panel-body text-center">
+                  <div class="panel-body">
                       <img src="{{ object.image.url }}" alt="Profile Picture" class="img-circle circle-container">
                       <h3>{{ object.name }}</h3>
                     <ul  class="social-icons">
