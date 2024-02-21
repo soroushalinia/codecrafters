@@ -12,7 +12,10 @@ class NewsListView(ListView):
     template_name = 'news/list.html'
     ordering = ('created')
 
-
+class NewsCommentView(DetailView):
+    template_name='news/post.html'
+    queryset = NewsModel.objects.filter(public=True)
+'''
 class NewsCommentView(FormMixin, DetailView):
     template_name='news/post.html'
     queryset = NewsModel.objects.filter(public=True)
@@ -38,3 +41,4 @@ class NewsCommentView(FormMixin, DetailView):
         else:
             messages.error(self.request, 'لطفا تمامی فیلدها را پر کنید')
             return super(NewsCommentView, self).form_invalid(form)
+'''

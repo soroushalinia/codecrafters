@@ -6,5 +6,5 @@ app_name = 'topic'
 urlpatterns = [
     path('', TopicListViews.as_view(), name='topics'),
     path('<pk>/', TopicDetailView.as_view(), name='topic'),
-    path('describe/', TopicDescribeCommentView.as_view(), name='describe'),
+    path('describe/<pk>/', TopicDescribeCommentView.as_view(), name='describe'),
 ]

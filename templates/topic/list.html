@@ -14,7 +14,7 @@
    {% endfor %}
 {% endblock %}
 
-{% block titile %} وبلاگ {% endblock %}
+{% block titile %} موضوعات {% endblock %}
 
 {% block body %}
 
@@ -31,11 +31,11 @@
    			{% for obj in object_list %}
 					<div class="col-lg-4 col-md-4">
 						<div class="fh5co-blog animate-box">
-							<a href="{% url 'blog:blog' obj.id %}" class="blog-img-holder" style="background-image: url({{ obj.image.url }});"></a>
+							<a href="{% url 'topic:topic' obj.id %}" class="blog-img-holder" style="background-image: url({{ obj.image.url }});"></a>
 							<div class="blog-text text-center">
 								<h3><a href="{% url 'topic:topic' obj.id %}">{{ obj.title }}</a></h3>
 								<span class="posted_on">{{ obj.created|date:"Y-m-d" }}</span>
-								<p>{{ obj.short_describe }}</p>
+								<p>{{ obj.search }}</p>
 							</div> 
 						</div>
 					</div>

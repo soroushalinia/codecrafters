@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TopicModel, DescribeTopicModel, CommentTopicModel
+from .models import TopicModel, DescribeTopicModel
 from .forms import DescribeTopicModelForm
 from teacher.models import TeacherModel
 # Register your models here.
@@ -50,7 +50,7 @@ class TopicAdmin(admin.ModelAdmin):
         return False
 
     
-
+'''
 @admin.register(CommentTopicModel)
 class CommentTopicAdmin(admin.ModelAdmin):
 
@@ -75,4 +75,5 @@ class CommentTopicAdmin(admin.ModelAdmin):
         return False
     
     def has_delete_permission(self, request, obj=None):
-        return False
+        return 
+'''

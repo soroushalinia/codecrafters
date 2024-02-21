@@ -19,10 +19,15 @@ class TopicDetailView(DetailView):
 
     def get_context_data(self, **kwargs: Any):
         context = super(TopicDetailView, self).get_context_data(**kwargs)
-        context['object_list'] = DescribeTopicModel.objects.filter(topic__id = self.kwargs['pk'], pulic=True).order_by('number') 
+        context['object_list'] = DescribeTopicModel.objects.filter(topic__id = self.kwargs['pk'], public=True).order_by('number') 
         return context
-    
 
+
+class TopicDescribeCommentView(DetailView):
+    queryset = DescribeTopicModel.objects.filter(public=True)
+    template_name='topic/post.html'
+
+'''
 class TopicDescribeCommentView(FormMixin, DetailView):
     queryset = DescribeTopicModel.objects.filter(public=True)
     template_name='topic/post.html'
@@ -49,3 +54,4 @@ class TopicDescribeCommentView(FormMixin, DetailView):
         else:
             messages.error(self.request, 'لطفا تمامی فیلدها را پر کنید')
             return super(TopicDescribeCommentView, self).form_invalid(form)
+'''

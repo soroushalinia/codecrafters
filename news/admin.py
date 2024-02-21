@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import NewsModel, NewsCommentModel
+from .models import NewsModel
 from teacher.models import TeacherModel
 # Register your models here.
 

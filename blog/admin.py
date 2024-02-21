@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogModel, CommentBlogtModel
+from .models import BlogModel
 from teacher.models import TeacherModel
 
 # Register your models here.
@@ -32,6 +32,7 @@ class BlogAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
          return False
 
+'''
 @admin.register(CommentBlogtModel)
 class CommentBlogAdmin(admin.ModelAdmin):
     def has_add__permission(self, request, obj=None):
@@ -48,3 +49,4 @@ class CommentBlogAdmin(admin.ModelAdmin):
     
     def has_delete_permission(self, request, obj=None):
          return False
+'''

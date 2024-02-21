@@ -12,8 +12,11 @@ class BlogListView(ListView):
     template_name = 'blog/list.html'
     ordering = ('-created')
 
-
-
+class BlogCommentView(DetailView):
+    queryset = BlogModel.objects.filter(public=True)
+    template_name='blog/post.html'
+    
+'''
 class BlogCommentView(FormMixin, DetailView):
     queryset = BlogModel.objects.filter(public=True)
     template_name='blog/post.html'
@@ -39,3 +42,4 @@ class BlogCommentView(FormMixin, DetailView):
         else:
             messages.error(self.request, 'لطفا تمامی فیلدها را پر کنید')
             return super(BlogCommentView, self).form_invalid(form)
+'''

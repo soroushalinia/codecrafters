@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-md-8 animate-box">
 				<h3 class="text-center">{{ object.title }}</h3>
-                <div class="custom-border">
+                <div class="custom-border text-right">
 				    {{ object.describe|safe }}
                 </div>
 			</div>
@@ -38,6 +38,7 @@
 	</div>
 </div>
 
+<!--
     <div id="fh5co-contact">
         <div class="container">
             <div class="row">
@@ -48,13 +49,13 @@
                         {% csrf_token %}
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <!-- <label for="fname">First Name</label> -->
+                                 <label for="fname">First Name</label> 
                                 <input type="text" name="name" id="name" class="form-control text-right" placeholder="نام">
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <!-- <label for="message">Message</label> -->
+                                <label for="message">Message</label> 
                                 <textarea name="describe" id="message" cols="30" rows="10" class="form-control text-right" placeholder="موضوع"></textarea>
                             </div>
                         </div>
@@ -67,6 +68,6 @@
 
         </div>
     </div>
-
+-->
 
 {% endblock %}

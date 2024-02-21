@@ -11,7 +11,7 @@ class TopicModel(models.Model):
     title = models.TextField(verbose_name='عنوان')
     image = models.ImageField(upload_to='topics', verbose_name='تصویر')
     the_end = models.BooleanField(default=False, verbose_name='پایان')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ')
+    created = models.DateTimeField(verbose_name='تاریخ')
     search = models.TextField(verbose_name='متن جستجو')
     
     def delete(self, *args, **kwargs):
@@ -33,7 +33,7 @@ class DescribeTopicModel(models.Model):
     title = models.CharField(max_length=255, verbose_name='عنوان')
     public = models.BooleanField(default=False, verbose_name='انتشار')
     describtion = RichTextField(blank=True, null=True, verbose_name='توضیحات')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ')
+    created = models.DateTimeField(verbose_name='تاریخ')
     search = models.TextField(verbose_name='متن جستجو')
     
     def __str__(self) -> str:

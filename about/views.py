@@ -5,7 +5,9 @@ from django.views.generic.edit import FormMixin
 from django.urls import reverse
 # Create your views here.
 
-
+class AboutView(TemplateView):
+    template_name='about/about.html'
+'''
 class AboutView(FormMixin, TemplateView):
     template_name='about/about.html'
     form_class = ConnectForm
@@ -30,3 +32,4 @@ class AboutView(FormMixin, TemplateView):
         else:
             messages.error(self.request, 'لطفا تمامی فیلدها را پر کنید')
             return super(AboutView, self).form_invalid(form)
+'''
