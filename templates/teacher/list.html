@@ -14,8 +14,10 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-body text-center">
+                  <a href="{% url 'teacher:teacher' obj.id %}">
                     <img src="{{ obj.image.url }}" alt="Profile Picture" class="img-circle circle-container">
                     <h3>{{ obj.name }}</h3>
+                  </a>
                   <ul  class="social-icons">
                     {% if obj.telegram_username %}<li><a href="tg://resolve?domain={{obj.telegram_username}}"><i class="icon-telegram"></i></a></li>{% endif %}
                     {% if obj.github_username %}<li><a href="https://github.com/{{obj.github_username}}"><i class="icon-github"></i></a></li>{% endif %}
@@ -29,23 +31,6 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-4 ">
-          <div class="panel panel-default">
-              <div class="panel-body text-center">
-                  <img src="{{ obj.image.url }}" alt="Profile Picture" class="img-circle circle-container">
-                  <h3>{{ obj.name }}</h3>
-                <ul  class="social-icons">
-                  {% if obj.telegram_username %}<li><a href="tg://resolve?domain={{obj.telegram_username}}"><i class="icon-telegram"></i></a></li>{% endif %}
-                  {% if obj.github_username %}<li><a href="https://github.com/{{obj.github_username}}"><i class="icon-github"></i></a></li>{% endif %}
-                  {% if obj.linkedin_username %}<li><a href="https://www.linkedin.com/in/{{obj.linkedin_username}}"><i class="icon-linkedin2"></i></a></li>{% endif %}
-                  {% if obj.email %}<li><a href="mailto:{{obj.email}}"><i class="icon-mail"></i></a></li>{% endif %}
-                </ul>
-              </div>
-              <ul class="list-group text-center">
-                <p>{{ obj.title }}</p>
-                <p>{{ obj.search }}</p>
-              </ul>
-          </div>
       </div>
       {% endfor %}
     </div>
