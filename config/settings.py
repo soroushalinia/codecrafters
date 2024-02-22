@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-0as3%sw^)2gvg)&+dc#r9)174di10mc)74qlxzt)7)1fy%6qhc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['codecrafters.ir', 'www.codecrafters.ir', '127.0.0.1']
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['codecrafters.ir', 'www.codecrafters.ir', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ["https://codecrafters.ir", "http://codecrafters.ir"]
 
@@ -52,6 +55,7 @@ LOCAL_APPS = [
 
 PACK_APPS = [
     "ckeditor",
+
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + PACK_APPS
@@ -90,14 +94,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'codecrafters',
+            'USER': 'codecrafters',
+            'PASSWORD': 'codecrafters',
+            'HOST': 'postgres_codecrafters',
+            'PORT': 5432,
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

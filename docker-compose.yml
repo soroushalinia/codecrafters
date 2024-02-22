@@ -1,6 +1,21 @@
 version: '3.3'
 
 services:
+  postgres:
+    image: postgres
+    hostname: postgres_codecrafters
+    container_name: postgres_codecrafters
+    restart: on-failure
+    environment: 
+      - POSTGRES_DB=codecrafters
+      - POSTGRES_USER=codecrafters
+      - POSTGRES_PASSWORD=codecrafters
+    volumes: 
+      - ./data/codecrafters/postgres:/var/lib/postgresql/data 
+    networks: 
+      - main_codecrafter_network
+
+
   codecrafter:
     build: .
     hostname: codecrafter
