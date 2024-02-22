@@ -12,7 +12,7 @@ class TeacherAdmin(admin.ModelAdmin):
             return qs 
         if request.user.is_superuser and not request.user.teachermodel.remove:
             qs = super().get_queryset(request)
-            return qs.filter(id=request.user.id)
+            return qs.filter(author__id=request.user.id)
         
     def has_add_permission(self, request):
         if request.user.id == 1:
