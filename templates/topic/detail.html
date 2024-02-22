@@ -19,7 +19,7 @@
 {% block body %}
 
 
-<div id="fh5co-blog">
+<div id="fh5co-blog" dir="rtl" lang="fa" style="unicode-bidi: embed;">
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -33,7 +33,7 @@
 			{% for obj in object_list %}
 			<div class="col-md-4">
 				<div class="panel panel-default text-center">
-					<p>{{ obj.number }} جلسه</p>
+					<p>جلسه {{ obj.number }}  </p>
 					<div class="panel-body">
 					  <a href="{% url 'topic:describe' obj.id %}">
 						<h3>{{ obj.title }}</h3>
