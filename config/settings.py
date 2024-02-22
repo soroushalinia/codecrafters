@@ -169,19 +169,22 @@ CKEDITOR_UPLOAD_PATH = "media/ckeditor/uploads/"
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar_Full': [
-            ['Styles', 'Format', 'Bold', 'Italic', 'Underline',
-                'Strike', 'SpellChecker', 'Undo', 'Redo'],
-            ['Link', 'Unlink', 'Anchor'],
-            ['Image', 'Flash', 'Table', 'HorizontalRule'],
-            ['TextColor', 'BGColor'],
-            ['Smiley', 'SpecialChar'], ['Source'],
-            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['NumberedList', 'BulletedList'],
-            ['Indent', 'Outdent'],
-            ['Maximize'],
-        ],
-        'extraPlugins': 'justify,liststyle,indent',
-    },
+		[ 'Source', '-', 'Save', 'NewPage', 'ExportPdf', 'Preview', 'Print', '-', 'Templates' ] ,
+		[ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] ,
+		[ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] ,
+		[ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] ,
+		'/',
+		[ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] ,
+		[ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] ,
+		[ 'Link', 'Unlink', 'Anchor' ] ,
+		[ 'Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ],
+		'/',
+		[ 'Styles', 'Format', 'Font', 'FontSize' ],
+		[ 'TextColor', 'BGColor' ],
+		[ 'Maximize', 'ShowBlocks' ],
+		[ 'About' ]
+	],
+    }   
 }
 
 def CKEDITOR_FILENAME_GENERATOR(name): return os.path.basename(name)
