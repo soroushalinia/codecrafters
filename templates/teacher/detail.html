@@ -12,30 +12,28 @@
 <div id="fh5co-contact"  dir="rtl" lang="fa" style="unicode-bidi: embed;">
 	<div class="container">
 		<div class="row">
+      <div class="col-md-4 text-center">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img src="{{ object.image.url }}" alt="Profile Picture" class="img-circle circle-container">
+                <h3>{{ object.name }}</h3>
+              <ul  class="social-icons">
+                {% if object.telegram_username %}<li><a href="tg://resolve?domain={{object.telegram_username}}"><i class="icon-telegram"></i></a></li>{% endif %}
+                {% if object.github_username %}<li><a href="https://github.com/{{object.github_username}}"><i class="icon-github"></i></a></li>{% endif %}
+                {% if object.linkedin_username %}<li><a href="https://www.linkedin.com/in/{{object.linkedin_username}}"><i class="icon-linkedin2"></i></a></li>{% endif %}
+                {% if object.email %}<li><a href="mailto:{{object.email}}"><i class="icon-mail"></i></a></li>{% endif %}
+              </ul>
+            </div>
+              <p>{{ object.title }}</p>
+              <p>{{ object.search }}</p>
+        </div>
+    </div>
 			<div class="col-md-7 animate-box">
 				<h3 class="text-center">معرفی</h3>
           <div class="custom-border text-right">
 				    {{ object.describe|safe }}
           </div>
 			</div>
-            <br>
-            <br>
-            <div class="col-md-4 text-center">
-              <div class="panel panel-default">
-                  <div class="panel-body">
-                      <img src="{{ object.image.url }}" alt="Profile Picture" class="img-circle circle-container">
-                      <h3>{{ object.name }}</h3>
-                    <ul  class="social-icons">
-                      {% if object.telegram_username %}<li><a href="tg://resolve?domain={{object.telegram_username}}"><i class="icon-telegram"></i></a></li>{% endif %}
-                      {% if object.github_username %}<li><a href="https://github.com/{{object.github_username}}"><i class="icon-github"></i></a></li>{% endif %}
-                      {% if object.linkedin_username %}<li><a href="https://www.linkedin.com/in/{{object.linkedin_username}}"><i class="icon-linkedin2"></i></a></li>{% endif %}
-                      {% if object.email %}<li><a href="mailto:{{object.email}}"><i class="icon-mail"></i></a></li>{% endif %}
-                    </ul>
-                  </div>
-                    <p>{{ object.title }}</p>
-                    <p>{{ object.search }}</p>
-              </div>
-          </div>
 		</div>
 	</div>
 </div>
@@ -44,8 +42,9 @@
 
 <div id="fh5co-blog">
   <div class="container">          
-         <div class="row">
-         {% for obj in topics %}
+    <div class="row">
+      <h3 class="text-center">موضوعات این نویسنده</h3>
+      {% for obj in topics %}
         <div class="col-md-4">
           <div class="panel panel-default text-center">
             <div class="panel-body">
