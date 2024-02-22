@@ -17,18 +17,59 @@
                 </div>
 			</div>
             <br>
-            <div class="col-md-3 col-md-push-1 animate-box" >
+            <div class="col-md-4 col-md-push-1 animate-box" >
 				<div class="fh5co-contact-info" >
 					<h3 class="text-center">لینک موضوعات</h3>
-					<ul style="direction: rtl;">
-						<li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
-					</ul>
+					<table class="table table-hover">
+                        <thead>
+                        {% for obj in object_list %}                                   
+                            <tr>
+                                <td scope="row">{{ forloop.counter }}</td>
+                                <td>
+                                    <a href="{% url 'topic:topic' obj.pk %}">
+                                        {{ obj.title }}
+                                    </a>
+                                </td>
+                            </tr>    
+                        {% endfor %}
+                        </thead>
+                    </table>
 				</div>
+                <h3 class="text-center">نویسنده</h3>
+                <div class="panel panel-default text-center">
+                    <div class="panel-body">
+                      <a href="{% url 'teacher:teacher' object.topic.author.id %}">
+                        <img src="{{ object.topic.author.image.url }}" alt="Profile Picture" class="img-circle circle-container">
+                        <h3>{{ object.topic.author.name }}</h3>
+                      </a>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>
 </div>
+<div id="fh5co-blog">
+    <div class="container">          
+       <div class="row">
+        <h3 class="text-center">موضوعات مشابه</h3>
 
+        {% for obj in topics %}
+          <div class="col-md-4">
+            <div class="panel panel-default text-center">
+              <div class="panel-body">
+                <a href="{% url 'topic:topic' obj.id %}">
+                <img src="{{ obj.image.url }}" alt="Profile Picture" class="img-circle circle-container">
+                <h3>{{ obj.name }}</h3>
+                </a>
+              </div>
+                <p>{{ obj.created|date:'Y-m-d' }}</p>
+                <p>{{ obj.titl }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>        
+    </div>
+  </div>
 <!--
     <div id="fh5co-contact">
         <div class="container">

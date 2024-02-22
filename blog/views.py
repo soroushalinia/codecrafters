@@ -1,3 +1,5 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.views.generic import DetailView, ListView
 from .models import BlogModel
 from .forms import BlogCommentForm
@@ -16,6 +18,12 @@ class BlogCommentView(DetailView):
     queryset = BlogModel.objects.filter(public=True)
     template_name='blog/post.html'
     
+    def get_context_data(self, **kwargs: Any):
+        context = super(BlogCommentView, self).get_context_data(**kwargs)
+        context['object_list'] = BlogModel.objects.filter(catalog = context['object'].catalog, public=True).order_by('-created') 
+        print(context)
+        return context
+
 '''
 class BlogCommentView(FormMixin, DetailView):
     queryset = BlogModel.objects.filter(public=True)

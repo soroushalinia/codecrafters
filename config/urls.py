@@ -26,7 +26,7 @@ urlpatterns = [
     path('teacher/', include('teacher.urls')),
     path('topic/', include('topic.urls')),
     path('blog/', include('blog.urls')),
-    path('news/', include('news.urls')),
+    #path('news/', include('news.urls')),
     path('about/', include('about.urls')),
 ]
 

@@ -8,7 +8,7 @@ class TopicModel(models.Model):
     author = models.ForeignKey(TeacherModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='نام مدرس')
     catalog = models.ForeignKey(CatalogModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='دسته بندی')
     name = models.CharField(max_length=250, verbose_name='نام')
-    title = models.TextField(verbose_name='عنوان')
+    title = models.CharField(max_length=255, verbose_name='عنوان')
     image = models.ImageField(upload_to='topics', verbose_name='تصویر')
     the_end = models.BooleanField(default=False, verbose_name='پایان')
     created = models.DateTimeField(verbose_name='تاریخ')

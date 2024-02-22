@@ -18,11 +18,23 @@
                 </div>
 			</div>
             <br>
-            <div class="col-md-3 col-md-push-1 animate-box" >
+            <div class="col-md-4 col-md-push-1 animate-box" >
 				<div class="fh5co-contact-info" >
-					<h3 class="text-center">وبلاگ پیشنهادی</h3>
-					<ul style="direction: rtl;">
-						<li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+					<h3 class="text-center"> پیشنهادی</h3>
+                    <table class="table table-hover">
+                        <thead>
+                        {% for obj in object_list %}                                   
+                            <tr>
+                                <td scope="row">{{ forloop.counter }}</td>
+                                <td>
+                                    <a href="{% url 'blog:blog' obj.pk %}">
+                                        {{ obj.title }}
+                                    </a>
+                                </td>
+                            </tr>    
+                        {% endfor %}
+                        </thead>
+                    </table>
 					</ul>
 				</div>
 			</div>

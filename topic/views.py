@@ -27,6 +27,13 @@ class TopicDescribeCommentView(DetailView):
     queryset = DescribeTopicModel.objects.filter(public=True)
     template_name='topic/post.html'
 
+    def get_context_data(self, **kwargs: Any):
+        context = super(TopicDescribeCommentView, self).get_context_data(**kwargs)
+        context['object_list'] = DescribeTopicModel.objects.filter(topic = context['object'].topic, public=True).order_by('number') 
+        context['topics'] = TopicModel.objects.filter(catalog = context['object'].topic.catalog)
+        print(context)
+        return context
+
 '''
 class TopicDescribeCommentView(FormMixin, DetailView):
     queryset = DescribeTopicModel.objects.filter(public=True)

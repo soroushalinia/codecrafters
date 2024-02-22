@@ -8,20 +8,14 @@ class DescribeTaoicAdmin(admin.StackedInline):
     model = DescribeTopicModel
     form = DescribeTopicModelForm
 
-    fieldsets = [
-        ('', {'fields': ['topic', 'number', 'title', 'public', 'search',]}),
-        ('', {'fields': ['describtion'], 'classes': ['full-row']}),
-    ]
 
 @admin.register(TopicModel)
 class TopicAdmin(admin.ModelAdmin):
     inlines = [DescribeTaoicAdmin]
     exclude = ['author', ]
     
-    def save_model(self, request, obj, form, change):
-        # Set the user field when creating a new object
-        if not obj.author:
-            obj.author = TeacherModel.objects.get(author__id = request.user.id)
+    def save_model(self, request, obj, form, change): 
+        obj.author = TeacherModel.objects.get(author__id = request.user.id)
         obj.save()
 
     def get_queryset(self, request):

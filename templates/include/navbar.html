@@ -36,10 +36,10 @@
                     <div class="col-xs-7 text-right menu-1">
                         <ul>
                             <li {% if request.path == index %} class="active" {% endif %} ><a href="{{ index }}">خانه</a></li>
-                            <li {% if request.path == news %} class="active" {% endif %}  ><a href="{{ news }}">اخبار</a></li>
                             <li {% if request.path == blog %} class="active" {% endif %} ><a href="{{ blog }}">وبلاگ</a></li>
                             <li {% if request.path == topic %} class="active" {% endif %} ><a href="{{ topic }}">موضوعات</a></li>
                             <!--<li class="has-dropdown" {% if request.path == index %} class="topic" {% endif %} >
+                                <li {% if request.path == news %} class="active" {% endif %}  ><a href="{{ news }}">اخبار</a></li>
                                 <a>موضوعات</a>
                                 <ul class="dropdown">
                                     <li><a href="#">Web Design</a></li>

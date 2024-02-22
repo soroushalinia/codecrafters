@@ -23,24 +23,28 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>{{ object.name }}</h2>
+					</span><h2>{{ object.name }}</h2>
                     <p>
                         {{ object.search }}
                     </p>
 				</div>
 			</div>            
          <div class="row">
-   			{% for obj in object_list %}
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<div class="blog-text text-center">
-							<h3><a href="{% url 'topic:describe' obj.id %}">{{ obj.title }}</a></h3>
-							<span class="posted_on">{{ obj.created|date:"Y-m-d" }}</span>
-							<p>{{ obj.search }}</p>
-						</div> 
+			{% for obj in object_list %}
+			<div class="col-md-4">
+				<div class="panel panel-default text-center">
+					<p>{{ obj.number }} جلسه</p>
+					<div class="panel-body">
+					  <a href="{% url 'topic:describe' obj.id %}">
+						<h3>{{ obj.title }}</h3>
+					  </a>
+					  
 					</div>
+					  <p>{{ obj.created|date:'Y-m-d' }}</p>
+					  <p>{{ obj.title }}</p>
 				</div>
-			{% endfor %}
+			</div>
+		{% endfor %}
          </div>
 		</div>
 	</div>
