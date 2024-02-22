@@ -5,13 +5,28 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'iransans';
+  src: url('../foont/IRANSans.ttf') format('truetype'),
+       url('../foont/IRANSans_Black.ttf') format('truetype'),
+       url('../foont/IRANSans_Bold.ttf') format('truetype'),
+       url('../foont/IRANSans_Medium.ttf') format('truetype'),
+       url('../foont/IRANSans_UltraLight.ttf') format('truetype'),
+       url('../foont/IRANSansDN-Bold.ttf') format('truetype'),
+       url('../foont/IRANSansDN.ttf') format('truetype'),
+       url('../foont/IRANSansDN_Light.ttf') format('truetype'),
+       url('../foont/IRANSans_Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;   
+}
+
 /* =======================================================
 *
 * 	Template Style 
 *
 * ======================================================= */
 body {
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: "Source Sans Pro", "iransans", Arial, sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.7;
@@ -64,7 +79,7 @@ p {
 
 h1, h2, h3, h4, h5, h6, figure {
   color: #000;
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", 'iransans', serif;
   font-weight: 400;
   margin: 0 0 20px 0;
 }
@@ -147,7 +162,7 @@ h1, h2, h3, h4, h5, h6, figure {
   text-transform: uppercase;
   font-weight: bold;
   font-weight: 700;
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: "Source Sans Pro", 'iransans', Arial, sans-serif;
 }
 .fh5co-nav #fh5co-logo a {
   color: #000;
@@ -365,7 +380,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 20px;
   line-height: 1.5;
   margin-bottom: 30px;
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: "Source Sans Pro", 'iransans', Arial, sans-serif;
 }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner h2 a {
   color: rgba(255, 255, 255, 0.5);
@@ -504,7 +519,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 44px;
   display: block;
   color: white;
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab",'iransans', serif;
   width: 100%;
   font-weight: 400;
   margin-bottom: .1em;
@@ -514,7 +529,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 16px;
   margin-bottom: 2em;
   display: block;
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab",'iransans', serif;
 }
 .fh5co-counters .icon i {
   font-size: 45px;
@@ -1086,7 +1101,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 14px;
   text-transform: uppercase;
   margin-bottom: 2.5em;
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: "Source Sans Pro", 'iransans', Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
 }
@@ -1176,7 +1191,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: "Source Sans Pro", 'iransans', Arial, sans-serif;
   color: #fff;
 }
 #fh5co-footer .copyright .block {
@@ -1256,7 +1271,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-offcanvas ul li.offcanvas-has-dropdown > a:after {
   position: absolute;
   right: 0px;
-  font-family: 'icomoon';
+  font-family: 'iransans';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -1436,7 +1451,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .btn {
   margin-right: 4px;
   margin-bottom: 4px;
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: "Source Sans Pro", 'iransans', Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   -webkit-border-radius: 30px;

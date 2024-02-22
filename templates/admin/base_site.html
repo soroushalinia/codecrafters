@@ -3,7 +3,12 @@
 
 {% block branding %}
    <h1 id="head" style="color: white;">
-        <img src="{% static 'images/favicon.ico' %}" alt="Edulogy" >
+        <img src="{% static 'image/favicon.ico' %}" alt="Edulogy" >
         پنل ادمین Code Crafters
     </h1>
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 {% endblock %}
