@@ -17,7 +17,9 @@ class BlogListView(ListView):
 class BlogCommentView(DetailView):
     queryset = BlogModel.objects.filter(public=True)
     template_name='blog/post.html'
-    
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+
     def get_context_data(self, **kwargs: Any):
         context = super(BlogCommentView, self).get_context_data(**kwargs)
         context['object_list'] = BlogModel.objects.filter(catalog = context['object'].catalog, public=True).order_by('-created') 

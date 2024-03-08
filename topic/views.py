@@ -16,16 +16,20 @@ class TopicListViews(ListView):
 class TopicDetailView(DetailView):
     model = TopicModel
     template_name = 'topic/detail.html'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
 
     def get_context_data(self, **kwargs: Any):
         context = super(TopicDetailView, self).get_context_data(**kwargs)
-        context['object_list'] = DescribeTopicModel.objects.filter(topic__id = self.kwargs['pk'], public=True).order_by('number') 
+        context['object_list'] = DescribeTopicModel.objects.filter(topic__slug = self.kwargs['slug'], public=True).order_by('number') 
         return context
 
 
 class TopicDescribeCommentView(DetailView):
     queryset = DescribeTopicModel.objects.filter(public=True)
     template_name='topic/post.html'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
 
     def get_context_data(self, **kwargs: Any):
         context = super(TopicDescribeCommentView, self).get_context_data(**kwargs)

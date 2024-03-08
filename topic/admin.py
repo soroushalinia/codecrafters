@@ -4,6 +4,7 @@ from .forms import DescribeTopicModelForm
 from teacher.models import TeacherModel
 # Register your models here.
 
+
 class DescribeTaoicAdmin(admin.StackedInline):
     model = DescribeTopicModel
     form = DescribeTopicModelForm
@@ -12,7 +13,6 @@ class DescribeTaoicAdmin(admin.StackedInline):
 @admin.register(TopicModel)
 class TopicAdmin(admin.ModelAdmin):
     inlines = [DescribeTaoicAdmin]
-    exclude = ['author', ]
     
     def save_model(self, request, obj, form, change): 
         obj.author = TeacherModel.objects.get(author__id = request.user.id)
@@ -42,7 +42,6 @@ class TopicAdmin(admin.ModelAdmin):
     
     def has_delete_permission(self, request, obj=None):
         return False
-
     
 '''
 @admin.register(CommentTopicModel)

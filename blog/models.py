@@ -2,10 +2,13 @@ from django.db import models
 from teacher.models import TeacherModel
 from core.models import CatalogModel
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
+import re
 
 # Create your models here.
 
 class BlogModel(models.Model):
+    slug = models.SlugField(null=True, blank=True)
     author = models.ForeignKey(TeacherModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='نویسنده')
     catalog = models.ForeignKey(CatalogModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='دسته بندی')
     title = models.CharField(max_length=200, verbose_name='عنوان')
@@ -20,6 +23,21 @@ class BlogModel(models.Model):
 
     def delete(self, *args, **kwargs):
         pass
+
+    def save(self, *args, **kwargs):
+        base_slug =  re.sub(r'[@#\\|/*&%$^+=!.,{}()_?]', '-', self.title)
+        if not self.id:
+            try:
+                latest_object = BlogModel.objects.latest('id')
+                latest_id = latest_object.id
+                number = latest_id + 1
+            except:
+                number = 1
+        else:
+            number = self.id
+        self.slug = f"{number}-{base_slug}".replace(' ', '-')
+        super().save(*args, **kwargs)
+
 
     class Meta:
         verbose_name = "وبلاگ"

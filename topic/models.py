@@ -2,9 +2,13 @@ from django.db import models
 from teacher.models import TeacherModel 
 from ckeditor.fields import RichTextField
 from core.models import CatalogModel
+from django.utils.text import slugify
+import re
+
 # Create your models here.
 
 class TopicModel(models.Model):
+    slug = models.CharField(max_length=255, null=True, blank=True)
     author = models.ForeignKey(TeacherModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='نام مدرس')
     catalog = models.ForeignKey(CatalogModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='دسته بندی')
     name = models.CharField(max_length=250, verbose_name='نام')
@@ -17,6 +21,22 @@ class TopicModel(models.Model):
     def delete(self, *args, **kwargs):
         pass
     
+
+    def save(self, *args, **kwargs):
+        base_slug =  re.sub(r'[@#\\|/*&%$^+=!.,{}()_?]', '-', self.title)
+        if not self.id:
+            try:
+                latest_object = TopicModel.objects.latest('id')
+                latest_id = latest_object.id
+                number = latest_id + 1
+            except:
+                number = 1
+        else:
+            number = self.id
+        self.slug = f"{number}-{base_slug}".replace(' ', '-')
+        super().save(*args, **kwargs)
+
+
     def __str__(self) -> str:
         return f'{self.name}'
     
@@ -28,6 +48,7 @@ class TopicModel(models.Model):
 
 
 class DescribeTopicModel(models.Model):
+    slug = models.CharField(max_length=255, null=True, blank=True)
     topic = models.ForeignKey(TopicModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='موضوع')
     number = models.PositiveBigIntegerField(verbose_name='شماره')
     title = models.CharField(max_length=255, verbose_name='عنوان')
@@ -41,6 +62,20 @@ class DescribeTopicModel(models.Model):
     
     def delete(self, *args, **kwargs):
         pass
+
+    def save(self, *args, **kwargs):
+        base_slug =  re.sub(r'[@#\\|/*&%$^+=!.,{}()_?]', '-', self.title)
+        if not self.id:
+            try:
+                latest_object = TopicModel.objects.latest('id')
+                latest_id = latest_object.id
+                number = latest_id + 1
+            except:
+                number = 1
+        else:
+            number = self.id
+        self.slug = f"{number}-{base_slug}".replace(' ', '-')
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = "جلسه"
