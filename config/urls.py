@@ -18,6 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from rest_framework import routers
+
+from blog.views import BlogViewSet
+from core.views import CatalogViewSet
+from teacher.views import TeacherViewSet
+from .views import GroupViewSet, UserViewSet
+
+router = routers.DefaultRouter()
+router.register(r'blog', BlogViewSet)
+router.register(r'teacher', TeacherViewSet)
+router.register(r'group', GroupViewSet)
+router.register(r'user', UserViewSet)
+router.register(r'catalog', CatalogViewSet)
 
 
 urlpatterns = [
@@ -28,6 +41,8 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     #path('news/', include('news.urls')),
     path('about/', include('about.urls')),
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG:

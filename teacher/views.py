@@ -1,8 +1,17 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView
+
+from teacher.serializers import TeacherSerializer
 from .models import TeacherModel
 from topic.models import TopicModel
 # Create your views here.
+from rest_framework import permissions, viewsets
+
+
+class TeacherViewSet(viewsets.ModelViewSet):
+    queryset = TeacherModel.objects.filter(remove=False)
+    serializer_class = TeacherSerializer
+    permission_classes = []
 
 
 class TeacherListView(ListView):

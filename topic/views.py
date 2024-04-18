@@ -1,11 +1,31 @@
 from typing import Any
+
+from topic.seralizers import TopicSerializer
 from .forms import TopicCommentForm
 from django.views.generic import DetailView, ListView
 from .models import TopicModel, DescribeTopicModel, CommentTopicModel
 from django.contrib import messages
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
+from rest_framework import permissions, viewsets
 # Create your views here.
+
+
+class TopicViewSet(viewsets.ModelViewSet):
+    queryset = TopicModel.objects.all()
+    serializer_class = TopicSerializer
+    permission_classes = []
+
+
+class DescribeTopicViewSet(viewsets.ModelViewSet):
+    queryset = TopicModel.objects.all()
+    serializer_class = TopicSerializer
+    permission_classes = []
+
+class CommentTopicViewSet(viewsets.ModelViewSet):
+    queryset = TopicModel.objects.all()
+    serializer_class = TopicSerializer
+    permission_classes = []
 
 
 class TopicListViews(ListView):

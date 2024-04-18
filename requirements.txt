@@ -4,6 +4,7 @@ Django==5.0.2
 django-ckeditor==6.7.1
 django-js-asset==2.2.0
 django-silk==5.1.0
+djangorestframework==3.15.1
 gevent==24.2.1
 gprof2dot==2022.7.29
 greenlet==3.0.3
