@@ -6,7 +6,7 @@ from django.utils.text import slugify
 import re
 
 
-class TopicModel(models.Model):
+class RealpythonTopicModel(models.Model):
     slug = models.CharField(max_length=255, null=True, blank=True)
     author = models.ForeignKey(TeacherModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='نام مدرس')
     catalog = models.ForeignKey(CatalogModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='دسته بندی')
@@ -25,7 +25,7 @@ class TopicModel(models.Model):
         base_slug =  re.sub(r'[@#\\|/*&%$^+=!.,{}()_?]', '-', self.title)
         if not self.id:
             try:
-                latest_object = TopicModel.objects.latest('id')
+                latest_object = RealpythonTopicModel.objects.latest('id')
                 latest_id = latest_object.id
                 number = latest_id + 1
             except:
@@ -46,9 +46,9 @@ class TopicModel(models.Model):
 
 
 
-class DescribeTopicModel(models.Model):
+class RealpythonDescribeTopicModel(models.Model):
     slug = models.CharField(max_length=255, null=True, blank=True)
-    topic = models.ForeignKey(TopicModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='موضوع')
+    topic = models.ForeignKey(RealpythonTopicModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='موضوع')
     number = models.PositiveBigIntegerField(verbose_name='شماره')
     title = models.CharField(max_length=255, verbose_name='عنوان')
     public = models.BooleanField(default=False, verbose_name='انتشار')
@@ -66,7 +66,7 @@ class DescribeTopicModel(models.Model):
         base_slug =  re.sub(r'[@#\\|/*&%$^+=!.,{}()_?]', '-', self.title)
         if not self.id:
             try:
-                latest_object = TopicModel.objects.latest('id')
+                latest_object = RealpythonTopicModel.objects.latest('id')
                 latest_id = latest_object.id
                 number = latest_id + 1
             except:
@@ -81,10 +81,8 @@ class DescribeTopicModel(models.Model):
         verbose_name_plural = "جلسات"
         ordering = ['created']
 
-
-
 class CommentTopicModel(models.Model):
-    describetapic = models.ForeignKey(DescribeTopicModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='تاپیک')
+    describetapic = models.ForeignKey(RealpythonDescribeTopicModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='تاپیک')
     parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='پاسخ به کامنت')
     name = models.CharField(max_length=100, verbose_name='نام')
     describe = models.TextField(verbose_name='توضیحات')

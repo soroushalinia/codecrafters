@@ -11,8 +11,6 @@ from django.urls import reverse
 
 from rest_framework import permissions, viewsets
 
-# Create your views here.
-
 class BlogListView(ListView):
     queryset = BlogModel.objects.filter(public=True)
     template_name = 'blog/list.html'
@@ -32,37 +30,8 @@ class BlogCommentView(DetailView):
     
 
 class BlogViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows blog posts to be viewed or edited.
-    """
     queryset = BlogModel.objects.filter(public=True)
     serializer_class = BlogSerializer
     permission_classes = []
+    lookup_field = "slug"
 
-'''
-class BlogCommentView(FormMixin, DetailView):
-    queryset = BlogModel.objects.filter(public=True)
-    template_name='blog/post.html'
-    form_class = BlogCommentForm
-    
-    def get_success_url(self):
-        return reverse('blog:blog_detail', kwargs={'pk': self.object.id})
-
-    def get_context_data(self, **kwargs):
-        context = super(BlogCommentView, self).get_context_data(**kwargs)
-        context['form'] = BlogCommentForm()
-        return context
-
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        form = self.get_form()
-        if form.is_valid():
-            obj = form.save(commit=False)
-            obj.blog = self.object
-            obj.save()
-            messages.success(self.request, 'کامنت شما با موفقیت ثبت شد')
-            return super(BlogCommentView, self).form_valid(form)
-        else:
-            messages.error(self.request, 'لطفا تمامی فیلدها را پر کنید')
-            return super(BlogCommentView, self).form_invalid(form)
-'''

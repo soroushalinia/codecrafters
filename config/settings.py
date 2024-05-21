@@ -52,6 +52,7 @@ LOCAL_APPS = [
     #"news",
     "about",
     "blog",
+    "realpython"
 ]
 
 PACK_APPS = [
