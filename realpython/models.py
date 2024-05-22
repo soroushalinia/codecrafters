@@ -81,8 +81,8 @@ class RealpythonDescribeTopicModel(models.Model):
         verbose_name_plural = "جلسات"
         ordering = ['created']
 
-class CommentTopicModel(models.Model):
-    describetapic = models.ForeignKey(RealpythonDescribeTopicModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='تاپیک')
+class RealPythonCommentTopicModel(models.Model):
+    describetopic = models.ForeignKey(RealpythonDescribeTopicModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='تاپیک')
     parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='پاسخ به کامنت')
     name = models.CharField(max_length=100, verbose_name='نام')
     describe = models.TextField(verbose_name='توضیحات')

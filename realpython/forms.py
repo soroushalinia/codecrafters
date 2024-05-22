@@ -1,11 +1,11 @@
 from django import forms
-from realpython.models import CommentTopicModel, RealpythonDescribeTopicModel
+from realpython.models import RealPythonCommentTopicModel, RealpythonDescribeTopicModel
 from ckeditor.widgets import CKEditorWidget
 
 
 class TopicCommentForm(forms.ModelForm):
     class Meta:
-        model = CommentTopicModel
+        model = RealPythonCommentTopicModel
         exclude = ('describetapic', 'parent', 'public', 'created')
 
 
@@ -17,4 +17,4 @@ class DescribeTopicModelForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['describtion'].widget = CKEditorWidget()  # Use CKEditor for the 'describtion' field
+        self.fields['descripStion'].widget = CKEditorWidget()  # Use CKEditor for the 'describtion' field

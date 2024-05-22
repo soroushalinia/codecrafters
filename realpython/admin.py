@@ -3,9 +3,10 @@ from django.contrib import admin
 from realpython.forms import DescribeTopicModelForm
 from realpython.models import RealpythonTopicModel
 from teacher.models import TeacherModel
+from .models import RealpythonDescribeTopicModel
 
 class DescribeRealPythonAdmin(admin.StackedInline):
-    model = RealpythonTopicModel
+    model = RealpythonDescribeTopicModel
     form = DescribeTopicModelForm
 
 

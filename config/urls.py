@@ -33,7 +33,8 @@ urlpatterns = [
     path('api/teacher/', include('teacher.urls')),
     path('api/blog', include('blog.urls')),
     path('api/topic/', include('topic.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('tinymce/', include('tinymce.urls')),
 ]
 
 if settings.DEBUG:
