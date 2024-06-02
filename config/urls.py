@@ -31,8 +31,9 @@ urlpatterns = [
     # path('api/', include(router.urls)),
     path('api/catalog/', include('core.urls')),
     path('api/teacher/', include('teacher.urls')),
-    path('api/blog', include('blog.urls')),
+    path('api/blog/', include('blog.urls')),
     path('api/topic/', include('topic.urls')),
+    path('api/realpython/', include('realpython.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('tinymce/', include('tinymce.urls')),
 ]

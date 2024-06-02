@@ -3,6 +3,7 @@ from teacher.models import TeacherModel
 from ckeditor.fields import RichTextField
 from core.models import CatalogModel
 from django.utils.text import slugify
+from tinymce import models as tinymce_models
 import re
 
 
@@ -48,11 +49,11 @@ class TopicModel(models.Model):
 
 class DescribeTopicModel(models.Model):
     slug = models.CharField(max_length=255, null=True, blank=True)
-    topic = models.ForeignKey(TopicModel, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='موضوع')
+    topic = models.ForeignKey(TopicModel,related_name='describe', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='موضوع')
     number = models.PositiveBigIntegerField(verbose_name='شماره')
     title = models.CharField(max_length=255, verbose_name='عنوان')
     public = models.BooleanField(default=False, verbose_name='انتشار')
-    describtion = RichTextField(blank=True, null=True, verbose_name='توضیحات')
+    describtion = tinymce_models.HTMLField(blank=True, null=True, verbose_name='توضیحات')
     created = models.DateTimeField(verbose_name='تاریخ')
     search = models.TextField(verbose_name='متن جستجو')
     

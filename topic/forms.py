@@ -17,4 +17,4 @@ class DescribeTopicModelForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['describtion'].widget = CKEditorWidget()  # Use CKEditor for the 'describtion' field
+        # self.fields['describtion'].widget = CKEditorWidget()  # Use CKEditor for the 'describtion' field
