@@ -21,17 +21,9 @@ class RealPythonSerializer(serializers.ModelSerializer):
         model = RealpythonTopicModel
         fields = "__all__"
 
-
-class RealpythonInfoSerializer(serializers.ModelSerializer):
-    author = TeacherSerializer()
-    
-    class Meta:
-        model = RealpythonTopicModel
-        fields = "__all__"
-
-class RealpythonDescribeSerializer(serializers.ModelSerializer):
-    topic = RealpythonInfoSerializer()
+class RealPythonDescribeCommentSerializer(serializers.ModelSerializer):
+    topic = RealPythonSerializer()
 
     class Meta:
-        model = RealpythonDescribeTopicModel
+        model = DescribeTopicModel
         fields = "__all__"

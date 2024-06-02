@@ -4,6 +4,12 @@ from core.serializers import CatalogSerializer
 from teacher.serializers import TeacherSerializer
 from .models import DescribeTopicModel, TopicModel
 
+class TopicDescriveCommentSerializer(serializers.ModelSerializer):
+    # topic = TopicSerializer()
+
+    class Meta:
+        model = DescribeTopicModel
+        fields = "__all__"
 
 class TopicDescriveCommentSerializer(serializers.ModelSerializer):
     # topic = TopicSerializer()
@@ -21,16 +27,8 @@ class TopicSerializer(serializers.ModelSerializer):
         model = TopicModel
         fields = "__all__"
 
-
-class TopicInfoSerializer(serializers.ModelSerializer):
-    author = TeacherSerializer()
-    
-    class Meta:
-        model = TopicModel
-        fields = "__all__"
-
-class TopicDescribeSerializer(serializers.ModelSerializer):
-    topic = TopicInfoSerializer()
+class TopicDescriveCommentSerializer(serializers.ModelSerializer):
+    topic = TopicSerializer()
 
     class Meta:
         model = DescribeTopicModel

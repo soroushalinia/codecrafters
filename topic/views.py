@@ -1,6 +1,6 @@
 from typing import Any
 
-from topic.serializers import TopicDescriveCommentSerializer, TopicSerializer,TopicDescribeSerializer
+from topic.serializers import TopicSerializer
 from .forms import TopicCommentForm
 from django.views.generic import DetailView, ListView
 from .models import TopicModel, DescribeTopicModel, CommentTopicModel
@@ -17,7 +17,7 @@ class TopicViewSet(viewsets.ModelViewSet):
 
 class TopicDescribeCommentViewSet(viewsets.ModelViewSet):
     queryset = DescribeTopicModel.objects.filter(public=True)
-    serializer_class = TopicDescribeSerializer
+    serializer_class = TopicSerializer
     lookup_field = "slug"
 
 # class TopicListViews(ListView):
