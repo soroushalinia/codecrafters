@@ -3,6 +3,7 @@ from teacher.models import TeacherModel
 from core.models import CatalogModel
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
+from tinymce import models as tinymce_models
 import re
 
 # Create your models here.
@@ -15,7 +16,7 @@ class BlogModel(models.Model):
     image = models.ImageField(upload_to="blog", verbose_name='تصویر')
     created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ')
     public = models.BooleanField(default=False, verbose_name='انتشار')
-    describe = RichTextField(verbose_name='توضیحات')
+    describe = tinymce_models.HTMLField(verbose_name='توضیحات')
     search = models.TextField(verbose_name='توضیح کوتاه')
     
     def __str__(self) -> str:

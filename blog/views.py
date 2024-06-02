@@ -32,6 +32,5 @@ class BlogCommentView(DetailView):
 class BlogViewSet(viewsets.ModelViewSet):
     queryset = BlogModel.objects.filter(public=True)
     serializer_class = BlogSerializer
-    permission_classes = []
     lookup_field = "slug"
 

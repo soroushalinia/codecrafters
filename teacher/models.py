@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+from tinymce import models as tinymce_models
 
 # Create your models here.
 
@@ -10,7 +11,7 @@ class TeacherModel(models.Model):
     title = models.CharField(max_length=500, verbose_name='عتوان')
     image = models.ImageField(upload_to='teacher', null=True, blank=True, verbose_name='تصویر')
     remove = models.BooleanField(default=False, verbose_name='حذف')
-    describe = RichTextField(verbose_name='توضیحات')
+    describe = tinymce_models.HTMLField(verbose_name='توضیحات')
     search = models.TextField(verbose_name='متن جستجو از خود')
     linkedin_username = models.CharField(max_length=255, null=True, blank=True, verbose_name='یوزرنیم لینکدین')
     email = models.EmailField(max_length=255, verbose_name='ایمیل')
